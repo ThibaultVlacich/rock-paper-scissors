@@ -1,4 +1,4 @@
-package fr.isep.vlacich.thibault.rockpaperscissors;
+package fr.isep.vlacich.thibault.rockpaperscissors.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -7,7 +7,9 @@ import javax.persistence.*;
 @Data
 @Entity
 public class Game {
-  private @Id @GeneratedValue Long id;
+  @Id
+  @GeneratedValue
+  private Long id;
 
   @Enumerated(EnumType.STRING)
   private GameChoice playerChoice;
