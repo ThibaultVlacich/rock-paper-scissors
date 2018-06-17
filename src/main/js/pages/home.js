@@ -9,12 +9,26 @@ class Home extends React.Component {
 
     this.state = {
       played: false,
+      gameId: null,
       playerChoice: null,
       serverChoice: null,
+      result: null,
     };
   }
 
+  resetGame() {
+    this.setState({
+      played: false,
+      gameId: null,
+      playerChoice: null,
+      serverChoice: null,
+      result: null,
+    });
+  }
+
   chooseOption(option) {
+    this.resetGame();
+
     this.setState({
       playerChoice: option,
     });
@@ -26,52 +40,21 @@ class Home extends React.Component {
       return;
     }
 
-    axios.post('/api/games', { playerChoice: this.state.playerChoice.toUpperCase() })
+    axios.put('/api/games')
+      .then(response => axios.put(`/api/games/${response.data.id}`, { playerChoice: this.state.playerChoice.toUpperCase() }))
       .then(response => {
         this.setState({
           played: true,
           serverChoice: response.data.serverChoice.toLowerCase(),
+          result: response.data.result.toLowerCase(),
         });
       })
       .catch(error => {
-        this.setState({
-          played: false,
-          serverChoice: null,
-        });
+        this.resetGame();
 
         alert('Error: An error happened while trying to play with the server. Please try again.');
         console.log(error);
       })
-  }
-
-  evaluateResult() {
-    if (this.state.playerChoice === this.state.serverChoice) {
-      return 'tie';
-    } else if (this.state.serverChoice === 'rock') {
-      if (this.state.playerChoice === 'paper') {
-        // Paper wins over rock
-        return 'won';
-      } else {
-        // Scissors lose over rock
-        return 'lost';
-      }
-    } else if (this.state.serverChoice === 'paper') {
-      if (this.state.playerChoice === 'rock') {
-        // Rock loses over paper
-        return 'lost';
-      } else {
-        // Scissors win over paper
-        return 'won';
-      }
-    } else if (this.state.serverChoice === 'scissors') {
-      if (this.state.playerChoice === 'rock') {
-        // Rock wins over scissors
-        return 'won';
-      } else {
-        // Paper loses over scissors
-        return 'lost';
-      }
-    }
   }
 
   renderOption(option) {
@@ -86,14 +69,12 @@ class Home extends React.Component {
   }
 
   renderResult() {
-    const result = this.evaluateResult();
-
     let descriptiveResult, state;
 
-    if (result === 'tie') {
+    if (this.state.result === 'draw') {
       descriptiveResult = 'It\'s a tie !';
       state = 'warning';
-    } else if (result === 'won') {
+    } else if (this.state.result === 'win') {
       descriptiveResult = 'You won!';
       state = 'success';
     } else {
