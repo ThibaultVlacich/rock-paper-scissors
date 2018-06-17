@@ -1,0 +1,15 @@
+.btn-option {
+  padding: 15px;
+  width: 100%;
+
+  .fa {
+    font-size: 10em;
+  }
+
+  span {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    text-transform: capitalize;
+  }
+}

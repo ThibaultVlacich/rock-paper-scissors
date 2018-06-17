@@ -1,0 +1,17 @@
+//////////
+// Bootstrap
+//////////
+@import "~bootstrap/scss/bootstrap";
+
+//////////
+// Font Awesome
+//////////
+$fa-font-path: '~font-awesome/fonts/';
+@import "~font-awesome/scss/font-awesome";
+
+//////////
+// Global app styles
+//////////
+body {
+  padding: 20px 0;
+}

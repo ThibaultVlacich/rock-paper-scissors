@@ -1,0 +1,56 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": ">Rock, Paper, Scissors game using Spring Boot and React",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThibaultVlacich/rock-paper-scissors.git"
+  },
+  "keywords": [
+    "rock",
+    "paper",
+    "scissors",
+    "spring",
+    "react"
+  ],
+  "author": "Thibault Vlacich",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "rest": "^2.0.0",
+    "webpack": "^4.12.0"
+  },
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-import-resolver-webpack": "^0.10.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.9.1",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "engines": {
+    "node": "~8.11.3",
+    "npm": "~6.1.0"
+  }
+}
