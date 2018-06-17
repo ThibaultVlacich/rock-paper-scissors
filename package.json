@@ -16,6 +16,7 @@
   "author": "Thibault Vlacich",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",

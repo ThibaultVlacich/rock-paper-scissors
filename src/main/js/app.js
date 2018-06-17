@@ -16,6 +16,9 @@ class App extends React.Component {
     return (
       <div className="container">
         <Home />
+        <footer className="text-center">
+          Rock, Paper, Scissors - Made by <a href="https://thibault.vlacich.fr/" target="_blank">Thibault Vlacich</a>
+        </footer>
       </div>
     );
   }
